@@ -279,6 +279,20 @@ function downloadReport() {
 
 
 </script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+<script>
+  async function runPython() {
+    let pyodide = await loadPyodide();
+    await pyodide.runPython(`
+      def greet():
+          return "Hello from Python!"
+      print(greet())
+    `);
+  }
+
+  runPython();
+</script>
+
 <div class="grid-item"><a href="app.py">Card 1</a></div>
 </body>
 </html>
